@@ -1,0 +1,204 @@
+﻿{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'img/elements/fav.png'%}">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <link rel="icon" href="{% static 'img/log.png'%}" type="image/x-icon">
+    <title>Zoomala: Where Opportunities Find You</title>
+
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700'%}" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="{% static 'css/linearicons.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css'%}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+</head>
+<body>
+
+    <header id="header" id="home">
+        <div class="container">
+            <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo">
+                    <a href="register.html"><img src="{% static 'img/logo.png'%}" alt="j" title="" /></a>
+                </div>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        {% if not user.is_authenticated %}
+                        <li><a href="account/register">Sign Up</a></li>
+                        <li><a href="account/login">Login</a></li>
+
+                        {% endif %}
+                        <li><a href="feed.html">feed</a></li>
+                        <li><a href="Opportunities.html">Opportunities</a></li>
+                        <li><a href="Mentorship.html">Mentorship</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="account/logout">Logout</a></li>
+                        {% endif %}
+                    </ul>
+                </nav><!-- #nav-menu-container -->
+            </div>
+        </div>
+    </header><!-- #header -->
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        Zoomala
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-about-area" id="about">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 no-padding home-about-left">
+                    <img class="img-fluid" src="{% static 'img/zImage.png'%}" alt="">
+                </div>
+                <div class="col-lg-6 no-padding home-about-right">
+                    </br>
+                    </br>
+
+                    <form action="login" method="post">
+
+                        {% csrf_token%}
+
+
+                        <input name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Set your Username'" class="common-input mb-20 form-control" required="" type="text" style="width:375px;">
+
+                        <input name="password" placeholder="Password " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Set your Password'" class="common-input mb-20 form-control" required="" type="password" style="width:375px;">
+                        <button class="primary-btn mt-20 text-white" style="width:200px;">Sign Up</button>
+                    </form>
+                    {% for message in messages %}
+                    <h3>{{message}}</h3>
+                    {% endfor %}
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- start footer Area -->
+    <footer class="footer-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Quick links</h6>
+                        <ul>
+                            <li><a href="#">Internship</a></li>
+                            <li><a href="#">Opportunities</a></li>
+                            <li><a href="#">Mentors</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Features</h6>
+                        <ul>
+                            <li><a href="#">Internship</a></li>
+                            <li><a href="#">Opportunities</a></li>
+                            <li><a href="#">Mentors</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Resources</h6>
+                        <ul>
+                            <li><a href="#">Internship</a></li>
+                            <li><a href="#">Opportunities</a></li>
+                            <li><a href="#">Mentors</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                    <div class="single-footer-widget">
+                        <h6>Follow Us</h6>
+                        <p>Let us be social</p>
+                        <div class="footer-social d-flex align-items-center">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"><i class="fa fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Newsletter</h6>
+                        <p>Stay update with our latest</p>
+                        <div class="" id="mc_embed_signup">
+                            <form target="_blank" novalidate="true" action="{% static 'https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01'%}" method="get" class="form-inline">
+                                <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+                                <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
+                                <div style="position: absolute; left: -5000px;">
+                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                </div>
+
+                                <div class="info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- End footer Area -->js/vendor/jquery-2.2.4.min.js
+
+    <script src="{% static 'js/vendor/jquery-2.2.4.min.js'%}"></script>
+    <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'%}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="{%static 'js/vendor/bootstrap.min.js'%}"></script>
+    <script type="{%static 'text/javascript'%}" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="{%static 'https://code.jquery.com/ui/1.12.1/jquery-ui.js'%}"></script>
+    <script src="{%static 'js/easing.min.js'%}"></script>
+    <script src="{%static 'js/hoverIntent.js'%}"></script>
+    <script src="{%static 'js/superfish.min.js'%}"></script>
+    <script src="{%static 'js/jquery.ajaxchimp.min.js'%}"></script>
+    <script src="{%static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{%static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{%static 'js/jquery.sticky.js'%}"></script>
+    <script src="{%static 'js/jquery.nice-select.min.js'%}"></script>
+    <script src="{%static 'js/waypoints.min.js'%}"></script>
+    <script src="{%static 'js/jquery.counterup.min.js'%}"></script>
+    <script src="{%static 'js/parallax.min.js'%}"></script>
+    <script src="{%static 'js/mail-script.js'%}"></script>
+    <script src="{%static 'js/main.js'%}"></script>
+</body>
+</html>
+
+
+
+
+</body>
+
+</ht</html>
